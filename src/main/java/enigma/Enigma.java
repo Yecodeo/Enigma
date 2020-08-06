@@ -25,13 +25,6 @@ public class Enigma {
     }
 
     /**
-     * Constructor sans params
-     */
-    public Enigma() {
-
-    }
-
-    /**
      * chiffrer le message
      * @return {String}
      * @throws Exception
