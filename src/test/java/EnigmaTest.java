@@ -1,6 +1,3 @@
-package enigma;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -19,41 +16,41 @@ class EnigmaTest {
         String message = "AAA";
         Enigma e = new Enigma(4, message, rotors);
         String result = e.encode();
-        Assertions.assertEquals(result, "KQF");
+        assertEquals(result, "KQF");
     }
     @Test
     void encodeTwentyTree() throws Exception {
         String message = "WEATHERREPORTWINDYTODAY";
         Enigma e = new Enigma(7, message, rotors);
         String result = e.encode();
-        Assertions.assertEquals(result, "ALWAURKQEQQWLRAWZHUYKVN");
+        assertEquals(result, "ALWAURKQEQQWLRAWZHUYKVN");
     }
     @Test
     void decodeTwentyOne() throws Exception {
         String message = "PQSACVVTOISXFXCIAMQEM";
         Enigma e = new Enigma(9, message, rotors);
         String result = e.decode();
-        Assertions.assertEquals(result, "EVERYONEISWELCOMEHERE");
+        assertEquals(result, "EVERYONEISWELCOMEHERE");
     }
     @Test
     void encodeTwentyOne() throws Exception {
         String message = "EVERYONEISWELCOMEHERE";
         Enigma e = new Enigma(9, message, rotors);
         String result = e.encode();
-        Assertions.assertEquals(result, "PQSACVVTOISXFXCIAMQEM");
+        assertEquals(result, "PQSACVVTOISXFXCIAMQEM");
     }
     @Test
     void encodeFortyTwo() throws Exception {
         String message = "EVERYONEISWELCOMEHEREEVERYONEISWELCOMEHERE";
         Enigma e = new Enigma(9, message, rotors);
         String result = e.encode();
-        Assertions.assertEquals(result, "PQSACVVTOISXFXCIAMQEMDZIXFJJSTQIENEFQXVZYV");
+        assertEquals(result, "PQSACVVTOISXFXCIAMQEMDZIXFJJSTQIENEFQXVZYV");
     }
     @Test
     void decodeFortyNine() throws Exception {
         String message = "XPCXAUPHYQALKJMGKRWPGYHFTKRFFFNOUTZCABUAEHQLGXREZ";
         Enigma e = new Enigma(5, message, rotors);
         String result = e.decode();
-        Assertions.assertEquals(result, "THEQUICKBROWNFOXJUMPSOVERALAZYSPHINXOFBLACKQUARTZ");
+        assertEquals(result, "THEQUICKBROWNFOXJUMPSOVERALAZYSPHINXOFBLACKQUARTZ");
     }
 }

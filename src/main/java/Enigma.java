@@ -3,7 +3,6 @@
  * Class pour chiffre, déchiffrer les massaes de machine Enigma
  * @link https://fr.wikipedia.org/wiki/Enigma_(machine)
  */
-package enigma;
 
 
 public class Enigma {
@@ -108,6 +107,9 @@ public class Enigma {
      * @return String
      */
     private String rotator(String res) {
+        for (String item : rotors) {
+            System.out.println(item);
+        }
         for (int j = 0; j < rotors.length; j++) {
             String done = "";
             for (char ch : res.toCharArray()) {
