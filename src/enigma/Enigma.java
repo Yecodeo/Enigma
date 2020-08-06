@@ -1,21 +1,41 @@
+/**
+ * @author Afjnik hassan
+ * Class pour chiffre, déchiffrer les massaes de machine Enigma
+ * @link https://fr.wikipedia.org/wiki/Enigma_(machine)
+ */
 package enigma;
+
 
 public class Enigma {
     private int offset;
     private String text;
-    private final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private String[] rotors = new String[3];
 
+    /**
+     * Constructor
+     * @param offset
+     * @param str
+     * @param r
+     */
     public Enigma(int offset, String str, String[] r) {
         this.offset = offset;
         this.text = str;
         this.rotors = r;
     }
 
+    /**
+     * Constructor sans params
+     */
     public Enigma() {
 
     }
 
+    /**
+     * chiffrer le message
+     * @return {String}
+     * @throws Exception
+     */
     public String encode() throws Exception {
         try {
             if (this.rotors.length > 0 || this.offset > 0 || !this.text.isEmpty()) {
@@ -28,6 +48,11 @@ public class Enigma {
         return "";
     }
 
+    /**
+     * déchiffrer le message
+     * @return {String}
+     * @throws Exception
+     */
     public String decode() throws Exception {
         if (this.rotors.length > 0 || this.offset > 0 || !this.text.isEmpty()) {
             String unrotored = this.unRotator(this.text);
@@ -85,10 +110,10 @@ public class Enigma {
     private String rotator(String res) {
         for (int j = 0; j < rotors.length; j++) {
             String done = "";
-            for (int i = 0; i < res.length(); i++) {
-                char currentChar = res.charAt(i);
-                int pos = alpha.indexOf(currentChar);
+            for (char ch : res.toCharArray()) {
+                int pos = alpha.indexOf(ch);
                 done += rotors[j].charAt(pos);
+
             }
             res = done;
         }

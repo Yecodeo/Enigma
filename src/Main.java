@@ -12,14 +12,14 @@ public class Main {
 
         // decoding
         enigma.setOffset(5);
-        enigma.setText("XPCXAUPHYQALKJMGKRWPGYHFTKRFFFNOUTZCABUAEHQLGXREZ");
+        enigma.setText("AAA");
         enigma.setRotors(r);
         System.out.println(enigma.decode());
 
         //encoding
         enigma.setOffset(5);
         enigma.setText("THEQUICKBROWNFOXJUMPSOVERALAZYSPHINXOFBLACKQUARTZ");
-        System.out.println(enigma.encode());
+        System.out.println("result " + enigma.encode());
 
     }
 
