@@ -4,6 +4,7 @@
  * @link https://fr.wikipedia.org/wiki/Enigma_(machine)
  */
 
+package enigma;
 
 public class Enigma {
     private int offset;

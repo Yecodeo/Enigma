@@ -1,3 +1,4 @@
+import enigma.Enigma;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
