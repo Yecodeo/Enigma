@@ -42,7 +42,7 @@ public class Enigma {
                 return this.rotator(result);
             }
         } catch (Exception e ) {
-            throw new Exception("One or more param is not defined in the class");
+            System.err.printf(e.getMessage());
         }
         return "";
     }
@@ -53,11 +53,15 @@ public class Enigma {
      * @throws Exception
      */
     public String decode() throws Exception {
-        if (this.rotors.length > 0 || this.offset > 0 || !this.text.isEmpty()) {
-            String unrotored = this.unRotator(this.text);
-            return this.caesar(this.offset, unrotored, false);
+        try {
+            if (this.rotors.length > 0 || this.offset > 0 || !this.text.isEmpty()) {
+                String unrotored = this.unRotator(this.text);
+                return this.caesar(this.offset, unrotored, false);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        throw new Exception("One or more param is not defined in the class");
+        return "";
     }
 
     /**
@@ -108,14 +112,10 @@ public class Enigma {
      */
     private String rotator(String res) {
         for (String item : rotors) {
-            System.out.println(item);
-        }
-        for (int j = 0; j < rotors.length; j++) {
             String done = "";
             for (char ch : res.toCharArray()) {
                 int pos = alpha.indexOf(ch);
-                done += rotors[j].charAt(pos);
-
+                done += item.charAt(pos);
             }
             res = done;
         }
